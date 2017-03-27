@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Coba2Login.unity
+- path: Assets/Assets/Scenes/Coba2Login.unity
   isLoaded: 1
   isActive: 1
