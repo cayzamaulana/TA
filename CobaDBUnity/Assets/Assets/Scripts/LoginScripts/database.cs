@@ -99,6 +99,7 @@ public class database : MonoBehaviour
             if (w.text == "login-SUCCESS")
             {
                 print("Yatta");
+                Application.LoadLevel("MainMenu");
             }
             else
             {
