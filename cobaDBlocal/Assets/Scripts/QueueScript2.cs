@@ -13,6 +13,8 @@ public class QueueScript2 : MonoBehaviour {
     public float PositionRangeY;
     public float BasePosition;
     public GameObject Red, Gray;
+    public string nama;
+    public Text keterangan;
 
     // Use this for initialization
     void Start()
@@ -43,6 +45,8 @@ public class QueueScript2 : MonoBehaviour {
         queueChild.Remove(go);
         stack.pushA(go);
         ResetPosition();
+        string warna = go.GetComponent<Warna>().warna;
+        keterangan.text = "Piringan " + warna + " pindah menuju wadah hijau";
     }
 
     public void ResetPosition()

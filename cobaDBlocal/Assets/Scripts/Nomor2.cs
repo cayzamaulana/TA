@@ -34,7 +34,7 @@ public class Nomor2 : MonoBehaviour {
 		int cekno2 = PlayerPrefs.GetInt ("scoreno2");
 		Debug.Log(cekno2);
         Debug.Log(PlayerPrefs.GetString("username").ToString());
-        StartTimes = 60;
+        StartTimes = 300;
 		StartCoroutine(Postsoal(idsoal,soal));
         Button btn = submitBtn.GetComponent<Button>();
         btn.onClick.AddListener(Submit);
@@ -62,7 +62,7 @@ public class Nomor2 : MonoBehaviour {
 			score2 = PlayerPrefs.GetInt("scoreno2");
 			Debug.Log (PlayerPrefs.GetInt ("scoreno2"));
 			user = PlayerPrefs.GetString("username").ToString();
-			StartCoroutine(Postscore(user,idsoal, score2, 5f));
+			//StartCoroutine(Postscore(user,idsoal, score2, 40f));
 
 			string acak = scene.ToString();
 			if (cekno1 != 0 && cekno2 != 0 && cekno0 != 0 && cekno3 != 0) {
@@ -125,7 +125,7 @@ public class Nomor2 : MonoBehaviour {
 		score2 = PlayerPrefs.GetInt("scoreno2");
 		Debug.Log (PlayerPrefs.GetInt ("scoreno2"));
 		user = PlayerPrefs.GetString("username").ToString();
-		StartCoroutine(Postscore(user,idsoal, score2, 5f));
+		//StartCoroutine(Postscore(user,idsoal, score2, 10f));
 	
 		string acak = scene.ToString();
 		if (cekno1 != 0 && cekno2 != 0 && cekno0 != 0 && cekno3 != 0) {

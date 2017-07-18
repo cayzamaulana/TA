@@ -13,6 +13,8 @@ public class StackScript : MonoBehaviour {
     public QueueScript2 queue;
     public float BasePosition;
     public GameObject Violet, Yellow, Blue;
+    public string nama;
+    public Text keterangan;
 
 	// Use this for initialization
 	void Start () {
@@ -38,6 +40,8 @@ public class StackScript : MonoBehaviour {
         GameObject go = Deck1.Pop();
         stackChild.Remove(go);
         queue.pushB(go);
+        string warna = go.GetComponent<Warna>().warna;
+        keterangan.text = "Piringan " + warna + " pindah menuju wadah coklat";
         //Destroy(go);
     }
 

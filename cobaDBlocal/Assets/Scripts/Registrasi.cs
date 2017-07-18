@@ -60,11 +60,17 @@ public class Registrasi : MonoBehaviour {
         repass_r = r_repass.text;
         provinsi = pilihprovinsi.text;
 
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            error.color = red;
+            error.text = "Check Internet Connection";
+        }
+
         //sign_up(username_r, name_r, pass_r);
-        StartCoroutine(sign_up(username_r, name_r, pass_r, provinsi, 5f));
+        StartCoroutine(sign_up(username_r, name_r, pass_r, provinsi));
     }
 
-    IEnumerator sign_up(string elm, string elm1, string elm2, string elm3, float delay)
+    IEnumerator sign_up(string elm, string elm1, string elm2, string elm3)
     {
         if (pass_r == repass_r)
         {
@@ -72,7 +78,6 @@ public class Registrasi : MonoBehaviour {
 			{
 	            UnityWebRequest link = UnityWebRequest.Get("http://somethingnotright.dx.am/registrasi.php?r_username=" + elm + "&r_nama=" + elm1 + "&r_pass="+elm2 + "&r_provinsi="+elm3);
 	            yield return link.Send();
-                yield return new WaitForSeconds(delay);
 	            if (link.isError)
 	            {
 	                Debug.Log(link.error);

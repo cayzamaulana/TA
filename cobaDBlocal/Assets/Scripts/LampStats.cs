@@ -20,7 +20,9 @@ public class LampStats : MonoBehaviour {
         }
         else
         {
-            lampu.color = Color.white;
+            Color lmpMati = new Color32(45, 46, 47, 255);
+            lampu.color = lmpMati;
+            //lampu.color = Color.white;
         }
 	}
 }

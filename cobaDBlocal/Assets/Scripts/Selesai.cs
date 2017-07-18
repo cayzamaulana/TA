@@ -11,9 +11,12 @@ public class Selesai : MonoBehaviour {
     public Text nilai;
 	public Button submitBtn;
 	string user;
+    string idsoal = "S0";
+    string idsoal1 = "S1";
+    string idsoal2 = "S2";
+    string idsoal3 = "S3";
 
-
-	// Use this for initialization
+    // Use this for initialization
     void Start()
     {
         Debug.Log(PlayerPrefs.GetString("username").ToString());
@@ -24,8 +27,12 @@ public class Selesai : MonoBehaviour {
         user = PlayerPrefs.GetString("username").ToString();
 		int total = score0 + score1 + score2 + score3;
 		print(total);
-		PlayerPrefs.SetInt("TampilNilai", total);
-		StartCoroutine(Postscore(user, total));
+        int nilai0 = score0;
+        int nilai1 = score1;
+        int nilai2 = score2;
+        int nilai3 = score3;
+        PlayerPrefs.SetInt("TampilNilai", total);
+		StartCoroutine(Postscore(user, idsoal, idsoal1, idsoal2, idsoal3, nilai0, nilai1, nilai2, nilai3, total));
         Debug.Log(PlayerPrefs.GetInt("TampilNilai"));
         string Nilai = PlayerPrefs.GetInt("TampilNilai").ToString();
         nilai.text = Nilai;
@@ -38,9 +45,9 @@ public class Selesai : MonoBehaviour {
 		Application.LoadLevel ("pageHome");
 	}
 
-	IEnumerator Postscore(string user, int total)
+	IEnumerator Postscore(string user, string idsoal, string idsoal1, string idsoal2, string idsoal3, int nilai0, int nilai1, int nilai2, int nilai3, int total)
 	{
-		UnityWebRequest link = UnityWebRequest.Get("http://somethingnotright.dx.am/selesai.php?r_username=" + user + "&r_nilai=" + total);
+		UnityWebRequest link = UnityWebRequest.Get("http://somethingnotright.dx.am/masukinnilai.php?r_username=" + user + "&r_idsoal=" + idsoal + "&r_idsoal1=" + idsoal1 + "&r_idsoal2=" + idsoal2  + "&r_idsoal3=" + idsoal3 + "&r_nilai=" + nilai0 + "&r_nilai1=" + nilai1 + "&r_nilai2=" + nilai2 + "&r_nilai3=" + nilai3 + "&r_total=" + total);
 		yield return link.Send();
 		if (link.isError)
 		{

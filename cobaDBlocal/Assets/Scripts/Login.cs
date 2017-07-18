@@ -33,6 +33,12 @@ public class Login : MonoBehaviour {
         username_r = r_username.text;
         pass_r = r_pass.text;
 
+        if (Application.internetReachability == NetworkReachability.NotReachable)
+        {
+            error.color = red;
+            error.text = "Check Internet Connection";
+        }
+
         //error.text = username_r + pass_r;
         StartCoroutine(log_in(username_r, pass_r));
         if (error.color == green)
